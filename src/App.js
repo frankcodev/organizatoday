@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import AreaForm from './components/AreaForm';
 import AreaTarget from './components/AreaTarget';
-import AddButton from './components/AddButton';
+import AddButton from './components/AddButtonArea';
 import CloseButton from './components/CloseButton';
 
 function App() {

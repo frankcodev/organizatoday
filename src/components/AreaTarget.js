@@ -17,7 +17,7 @@ const AreaTarget = ({area, handleDeleteArea, tareas, setTareas}) => {
     }
 
     return ( 
-        <div className="targetPhone">
+        <div className="targetPhone f4 column">
             <div className = "targetHeader">
                  <h1>{area.name}</h1>
             </div>

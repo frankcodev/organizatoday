@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import AreaForm from './components/AreaForm';
 import AreaTarget from './components/AreaTarget';
 
@@ -48,9 +48,13 @@ function App() {
  }
  
   return (
-    <div className="App">
-      <h1>OrganizaToday</h1>
-      {areas.length > 0 ? 
+    <div className="App full">
+      <div className="titulo width f2">
+        <h1>OrganizaToday</h1>
+      </div>
+
+     <div className="f4 p2">
+     {areas.length > 0 ? 
       <div className="areasDisponibles">
         <span>Areas disponibles</span>
         <select>
@@ -59,19 +63,26 @@ function App() {
           ))}
         </select>
       </div>
-      :<span>Comienza agregando areas..</span>}
-      <button onClick={handleOpenFormArea}>+</button>
-      <AreaForm handleCreateArea = {handleCreateArea}/>
-      <p>Para inciar te sugerimos algunas areas, puedes eliminarlas o crear nuevas.</p>
+      :
+      <span>Comienza agregando areas..</span>
+      }
+      <div className="agregarAreas">
+        <button onClick={handleOpenFormArea}>+</button>
+        <AreaForm handleCreateArea = {handleCreateArea}/>
+      </div>
+     </div>
+      {/* <p>Para inciar te sugerimos algunas areas, puedes eliminarlas o crear nuevas.</p> */}
+      <div className="contentAreas wrap full f2 p2">
       {areas.length === 0 ?
       <span>No hay areas disponibles</span> 
       :
-      <div className="row">
-        {areas.map(area =>(
+        <Fragment>
+          {areas.map(area =>(
           <AreaTarget key={area.id} area = {area} handleDeleteArea = {handleDeleteArea} tareas = {tareas} setTareas={setTareas}/>
         ))}
-      </div> 
+        </Fragment>
     }
+      </div>
     </div>
   );
 }

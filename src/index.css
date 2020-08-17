@@ -1,0 +1,49 @@
+*{font-family: Arial, Helvetica, sans-serif; padding: 0; margin: 0;}
+html{box-sizing: border-box;}
+body{overflow-x: hidden;}
+body, html{
+    width: 100%;
+    height: 100%;
+    background-color: #f5f4f4;
+}
+*,*::before,*::after {box-sizing: inherit;}
+
+/*Clases flexbox */
+.f, .column, .wrap, .nowrap, .f4{display: flex;}
+.column{flex-direction: column;}
+.wrap{flex-wrap: wrap;}.nowrap{flex-wrap: nowrap;}
+
+.f1, .f1x, .f1x2x, .f1x2y, .f1x3x .f1x3y{justify-content: flex-start;display: flex;}
+.f1, .f1y, .f1y2x, .f1y2y, .f1y3x .f1y3y{align-items: flex-start;display: flex;}
+
+.f2, .f2x, .f1x2x, .f1y2x, .f2x3x, .f2x3y{justify-content: center;display: flex;}
+.f2, .f2y, .f1x2y, .f1y2y, .f2y3x, .f2y3y{align-items: center;display: flex;}
+
+.f3, .f3x, .f1x3x, .f2x3x, .f1y3x, .f2y3x {justify-content: flex-end;display: flex;}
+.f3, .f3y, .f1x3y, .f2x3y, .f1y3y, .f2y3y{align-items: flex-end;display: flex;}
+
+.f4{justify-content: space-between;}
+.width, .full {width: 100% !important;}
+.height, .full{height: 100% !important;}
+
+/*PADDINGS O RELLENOS*/
+.p1, .p1y, .p1t{padding-top: 1em;} .p1, .p1y, .p1y {padding-bottom: 1em;}
+.p1, .p1x, .p1l {padding-left: 1em;} .p1, .p1x, .p1r {padding-right: 1em;}
+.p2, .p2y, .p2t{padding-top: 2em;} .p2, .p2y, .p2y {padding-bottom: 2em;}
+.p2, .p2x, .p2l {padding-left: 2em;} .p2, .p2x, .p2r {padding-right: 2em;}
+
+/*MÁRGENES*/
+.m1, .m1y, .m1t{margin-top: 0.3em;} .m1, .m1y, .m1y {margin-bottom: 0.3em;}
+.m1, .m1x, .m1l {margin-left: 0.3em;} .m1, .m1x, .m1r {margin-right: 0.3em;}
+.m2, .m2y, .m2t{margin-top: 0.8em;} .m2, .m2y, .m2y {margin-bottom: 0.8em;}
+.m2, .m2x, .m2l {margin-left: 0.8em;} .m2, .m2x, .m2r {margin-right: 0.8em;}
+
+.targetPhone{
+    background-color: rgb(255, 255, 255);
+    margin: 5px 10px;
+    padding: 16px;
+    height: 400px;
+    width: 270px;
+    border-radius: 30px;
+    border: 10px solid #0b0c11;
+}

@@ -1,6 +1,8 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import AreaForm from './components/AreaForm';
 import AreaTarget from './components/AreaTarget';
+import AddButton from './components/AddButton';
+import CloseButton from './components/CloseButton';
 
 function App() {
 
@@ -13,6 +15,7 @@ function App() {
  if (!tareasIniciales) {
   tareasIniciales = []
 }
+ const [openForm, setOpenForm] = useState(false)
  const [areas, setAreas] = useState(areasIniciales)
  const [tareas, setTareas] = useState(tareasIniciales)
 
@@ -36,8 +39,11 @@ function App() {
 
  //FUNCIONES
  const handleOpenFormArea = () =>{
-   console.log("open form")
+    setOpenForm(true)
  }
+ const handleCloseFormArea = () =>{
+    setOpenForm(false)
+}
  const handleCreateArea = area =>{
    setAreas([ area,...areas])
    console.log(areas)
@@ -49,32 +55,34 @@ function App() {
  
   return (
     <div className="App full">
-      <div className="titulo width f2">
-        <h1>OrganizaToday</h1>
+      <div className="headerOtd width f2 column">
+        <h1 className="tOtd"><span className="c1">Organiza</span>Today</h1>
+        {/* <p className="bold c6 minTitle">tu día, semana, o mes organizado;)</p> */}
       </div>
 
-     <div className="f4 p2">
+     <div className="headerArea f4 f2y">
      {areas.length > 0 ? 
-      <div className="areasDisponibles">
-        <span>Areas disponibles</span>
-        <select>
-          {areas.map(area =>(
-            <option value={area.id} key={area.id}>{area.name}</option>
-          ))}
-        </select>
+      <div className="areasDisponibles m2r">
+        <span className="simpleTitle c3">Áreas de tu vida</span>
       </div>
       :
-      <span>Comienza agregando areas..</span>
+      <span className="bold c3">Agrega áreas de tu vida, ejemplo: personal, casa, trabajo..</span>
       }
-      <div className="agregarAreas">
-        <button onClick={handleOpenFormArea}>+</button>
-        <AreaForm handleCreateArea = {handleCreateArea}/>
+      <div className="f addArea">
+        {openForm?<AreaForm handleCreateArea = {handleCreateArea}/>:null}
+        <div className="f2">
+          {openForm? 
+            <CloseButton handleClose={handleCloseFormArea} />
+          :
+            <AddButton handleOpenFormArea = {handleOpenFormArea} />
+          }
+        </div>
       </div>
      </div>
       {/* <p>Para inciar te sugerimos algunas areas, puedes eliminarlas o crear nuevas.</p> */}
       <div className="contentAreas wrap full f2 p2">
       {areas.length === 0 ?
-      <span>No hay areas disponibles</span> 
+      <span className="simpleTitle">No hay áreas disponibles</span> 
       :
         <Fragment>
           {areas.map(area =>(

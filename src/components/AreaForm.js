@@ -29,15 +29,21 @@ const Formulario = ({handleCreateArea}) => {
     }
     return (  
         <Fragment>
-         {error? <span>Escribe algo..</span> : null}
+             <div className="addForm column">
+         {error? <span className="msg">Escribe algo..</span> : null}
         <form onSubmit={handleSubmit}>
-        <input 
-        type="text" 
-        value={area.name}
-        onChange={handleUpdateState}
-        />
-        <button>Agregar</button>
+            <div className="column">     
+            <input 
+            type="text" 
+            placeholder="Escribe el nombre del area"
+            value={area.name}
+            onChange={handleUpdateState}
+            />
+          <button>Agregar</button>
+         
+        </div>
        </form>
+       </div>
        </Fragment>
     );
 }

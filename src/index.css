@@ -12,13 +12,10 @@ body, html{
 .f, .column, .wrap, .nowrap, .f4{display: flex;}
 .column{flex-direction: column;}
 .wrap{flex-wrap: wrap;}.nowrap{flex-wrap: nowrap;}
-
 .f1, .f1x, .f1x2x, .f1x2y, .f1x3x .f1x3y{justify-content: flex-start;display: flex;}
 .f1, .f1y, .f1y2x, .f1y2y, .f1y3x .f1y3y{align-items: flex-start;display: flex;}
-
 .f2, .f2x, .f1x2x, .f1y2x, .f2x3x, .f2x3y{justify-content: center;display: flex;}
 .f2, .f2y, .f1x2y, .f1y2y, .f2y3x, .f2y3y{align-items: center;display: flex;}
-
 .f3, .f3x, .f1x3x, .f2x3x, .f1y3x, .f2y3x {justify-content: flex-end;display: flex;}
 .f3, .f3y, .f1x3y, .f2x3y, .f1y3y, .f2y3y{align-items: flex-end;display: flex;}
 
@@ -46,4 +43,72 @@ body, html{
     width: 270px;
     border-radius: 30px;
     border: 10px solid #0b0c11;
+}
+.headerOtd{
+    padding: 20px 0;
+}
+.headerArea{
+    box-shadow: 0px 3px #0b0c11;
+    transition: 0.3s;
+    padding: 0.5em 2.5em;
+}
+.addArea{
+    position: relative;
+}
+.msg{
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: bold;
+    background-color: #a8d2f5f6;
+    color: #00495c;
+    font-size: 12px;
+    position: absolute;
+    top: -22px;
+    transition: 0.3s;
+}
+.success{
+    background-color: #92f7a3f6;
+    color: #003a05;
+}
+/* COLORES ORGANIZATODAY*/
+.b1{background-color: #0b0c11;}
+.c1{color: #4dd358;}
+.b2{background-color: #0b0c11;}
+.c2{color: #0b0c11;}
+.c3{color: #2c75b4;;}
+.c6{color: #fcb6c9;}
+.c4{color: #275d8b;}
+
+.tOtd{
+    font-size: 3rem;
+    color: #011a05;
+}
+.bold{font-weight: bold;}
+.simpleTitle{
+    font-weight: bold;
+    font-size: 22px;
+}
+.minTitle{font-size: 11px;background-color: rgba(68, 68, 68, 0.719); padding: 2px 5px;border-radius: 20px;}
+.t2{text-align: center;}
+span{display: inline-block;}
+/* INPUTS */
+.pointer{cursor: pointer;}
+button, .button{
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 16px;
+  margin: 5px;
+  font-size: 14px;
+  background-color: #80e289;
+  color: #002700;
+}
+
+input{
+    border: none;
+    padding: 8px 10px;
+    border-radius: 20px;
+    background-color: #262926;
+    color: #f5f4f4;
 }

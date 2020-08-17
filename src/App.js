@@ -43,18 +43,36 @@ function App() {
  }
  const handleCloseFormArea = () =>{
     setOpenForm(false)
+    document.body.style.overflowY = "auto"
 }
  const handleCreateArea = area =>{
    setAreas([ area,...areas])
    console.log(areas)
  }
+
+ const [AlertMensaje, setAlertMensaje] = useState('')
  const handleDeleteArea = id =>{
+  let areatareas = tareas.filter(tarea=> tarea.area_id === id);
+  console.log(areatareas)
+  if (areatareas.length > 0) {
+    setAlertMensaje('Esta área tiene tareas registrtadas, asegurate qué harás con ellas;)')
+    return;
+  }
     const newAreas = areas.filter(area => area.id !== id)
     setAreas(newAreas)
  }
  
   return (
     <div className="App full">
+     {AlertMensaje ? 
+        <div className="alertMensaje f2">
+        <div className="message column">
+        {AlertMensaje}
+        <button onClick={() => setAlertMensaje('')}>OK</button>
+        </div>
+      </div> 
+       :null
+    }
       <div className="headerOtd width f2 column">
         <h1 className="tOtd"><span className="c1">Organiza</span>Today</h1>
         {/* <p className="bold c6 minTitle">tu día, semana, o mes organizado;)</p> */}

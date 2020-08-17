@@ -68,7 +68,7 @@ function App() {
       :
       <span className="bold c3">Agrega áreas de tu vida, ejemplo: personal, casa, trabajo..</span>
       }
-      <div className="f addArea">
+      <div className="addContentArea f">
         {openForm?<AreaForm handleCreateArea = {handleCreateArea}/>:null}
         <div className="f2">
           {openForm? 

@@ -29,7 +29,7 @@ const AreaTarget = ({area, handleDeleteArea, tareas, setTareas}) => {
     return ( 
         <div className="targetPhone relative f4 column">
             <div className = "targetHeader">
-                 <h1>{area.name}</h1>
+                 <h1 style={{color: `${area.color}`}}>{area.name}</h1>
             </div>
             <div className="targetContent f2 wrap">
               {openForm?

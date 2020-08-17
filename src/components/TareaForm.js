@@ -41,6 +41,7 @@ const TareaForm = ({handleCreateTarea, handleClose}) => {
        ref = {myInput}
        type="text" 
        placeholder="Describe tu tarea.."
+       className="input"
        value={tarea.description}
        onChange={handleUpdateState}
        />

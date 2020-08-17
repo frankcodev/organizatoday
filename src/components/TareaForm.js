@@ -1,7 +1,8 @@
 import React, { useState, Fragment } from 'react';
 import { v4 as uuid } from 'uuid';
+import CloseButton from './CloseButton';
 
-const TareaForm = ({handleCreateTarea, area}) => {
+const TareaForm = ({handleCreateTarea, handleClose}) => {
     const [tarea,  setTarea] = useState({
         description: '',
     })
@@ -20,23 +21,28 @@ const TareaForm = ({handleCreateTarea, area}) => {
            setError(true)
            return;
        }
-
        tarea.id = uuid()
        handleCreateTarea(tarea)
-
        setTarea({description: ''})
     }
     return (  
       <Fragment>
-        {error? <span>Escribe algo..</span> : null}
+        <div className="addFormTarea column">
+        {error? <span className="msg">Escribe algo..</span> : null}
+       
        <form onSubmit={handleSubmit}>
        <input 
        type="text" 
+       placeholder="Describe tu tarea.."
        value={tarea.description}
        onChange={handleUpdateState}
        />
-       <button>Agregar</button>
+       <div className="f2y">
+           <button>Agregar</button>
+           <CloseButton handleClose={handleClose} size = {2}/>
+       </div>
       </form>
+      </div>
       </Fragment>
     );
 }

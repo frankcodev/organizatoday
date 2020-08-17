@@ -5,7 +5,7 @@ const AddButton = ({handleOpenFormArea}) => {
         <div onClick={handleOpenFormArea} className="pointer">
         <svg xmlns="http://www.w3.org/2000/svg" 
         aria-hidden="true" focusable="false" 
-        width="3em" height="4em"  
+        width="4em" height="4em"  
         preserveAspectRatio="xMidYMid meet"
         viewBox="0 0 20 20">
           <g fill="#275d8b">

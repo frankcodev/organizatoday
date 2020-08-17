@@ -80,7 +80,7 @@ function App() {
       </div>
      </div>
       {/* <p>Para inciar te sugerimos algunas areas, puedes eliminarlas o crear nuevas.</p> */}
-      <div className="contentAreas wrap full f2 p2">
+      <div className="contentAreas wrap full f2 p2x p2b p1t">
       {areas.length === 0 ?
       <span className="simpleTitle">No hay áreas disponibles</span> 
       :

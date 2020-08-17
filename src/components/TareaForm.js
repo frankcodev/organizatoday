@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, Fragment, useEffect, useRef } from 'react';
 import { v4 as uuid } from 'uuid';
 import CloseButton from './CloseButton';
 
@@ -25,6 +25,12 @@ const TareaForm = ({handleCreateTarea, handleClose}) => {
        handleCreateTarea(tarea)
        setTarea({description: ''})
     }
+    const myInput = useRef();
+    useEffect(() =>{
+        if (myInput.current) {
+            myInput.current.focus();
+        }
+    }, [])
     return (  
       <Fragment>
         <div className="addFormTarea column">
@@ -32,6 +38,7 @@ const TareaForm = ({handleCreateTarea, handleClose}) => {
        
        <form onSubmit={handleSubmit}>
        <input 
+       ref = {myInput}
        type="text" 
        placeholder="Describe tu tarea.."
        value={tarea.description}

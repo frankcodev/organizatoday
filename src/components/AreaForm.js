@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, Fragment, useEffect, useRef } from 'react';
 import { v4 as uuid } from 'uuid';
 
 const Formulario = ({handleCreateArea}) => {
@@ -14,11 +14,18 @@ const Formulario = ({handleCreateArea}) => {
         })
         setError(false)
     }
+    const myInput = useRef();
+    useEffect(() =>{
+        if (myInput.current) {
+            myInput.current.focus();
+        }
+    }, [])
     const handleSubmit = e =>{
         e.preventDefault();
        // Validando el form
        if (area.name.trim() === '') {
            setError(true)
+           myInput.current.focus();
            return;
        }
 
@@ -27,6 +34,7 @@ const Formulario = ({handleCreateArea}) => {
 
        setArea({name: ''})
     }
+
     return (  
         <Fragment>
              <div className="addForm column">
@@ -34,8 +42,9 @@ const Formulario = ({handleCreateArea}) => {
         <form onSubmit={handleSubmit}>
             <div className="column">     
             <input 
+            ref = {myInput}
             type="text" 
-            placeholder="Escribe el nombre del area"
+            placeholder="Nombre del área"
             value={area.name}
             onChange={handleUpdateState}
             />

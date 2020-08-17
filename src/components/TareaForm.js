@@ -4,7 +4,6 @@ import { v4 as uuid } from 'uuid';
 const TareaForm = ({handleCreateTarea, area}) => {
     const [tarea,  setTarea] = useState({
         description: '',
-        area_id: area.id
     })
     const [error,  setError] = useState(false)
     const handleUpdateState = e =>{

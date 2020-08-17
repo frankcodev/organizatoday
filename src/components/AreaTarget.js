@@ -1,17 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import TareaForm from './TareaForm';
 import Tarea from './Tarea';
 
-const AreaTarget = ({area, handleDeleteArea}) => {
+const AreaTarget = ({area, handleDeleteArea, tareas, setTareas}) => {
 
-    const [tareas, setTareas] = useState([])
+    let currentTareas = tareas.filter(tarea=> tarea.area_id === area.id);
+
     const handleCreateTarea = tarea =>{
+        tarea.area_id = area.id
         setTareas([tarea, ...tareas])
     }
+
     const handleDeleteTarea = id =>{
         const newtareas = tareas.filter(tarea => tarea.id !== id)
         setTareas(newtareas)
-    }  
+    }
+
     return ( 
         <div className="targetPhone">
             <div className = "targetHeader">
@@ -19,10 +23,10 @@ const AreaTarget = ({area, handleDeleteArea}) => {
             </div>
             <TareaForm handleCreateTarea = {handleCreateTarea} area = {area}/>
             <div className="targetContent">
-               {tareas.length === 0 ? 
+               {currentTareas.length === 0 ? 
                <span>Agrega tareas</span>
                :
-               tareas.map(tarea =>(
+              currentTareas.map(tarea =>(
                 <Tarea key={tarea.id} tarea = {tarea} handleDeleteTarea={handleDeleteTarea}/>
             ))
                }

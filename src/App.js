@@ -1,10 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AreaForm from './components/AreaForm';
 import AreaTarget from './components/AreaTarget';
 
 function App() {
- const [areas, setAreas] = useState([])
 
+  //ALMACENAR AREAS Y TAREAS
+  let areasIniciales = JSON.parse(localStorage.getItem('areas'));
+  let tareasIniciales = JSON.parse(localStorage.getItem('tareas'));
+ if (!areasIniciales) {
+   areasIniciales = []
+ }
+ if (!tareasIniciales) {
+  tareasIniciales = []
+}
+ const [areas, setAreas] = useState(areasIniciales)
+ const [tareas, setTareas] = useState(tareasIniciales)
+
+ useEffect(() =>{
+   if (areasIniciales) {
+     localStorage.setItem('areas', JSON.stringify(areas))
+   }else{
+    localStorage.setItem('areas', JSON.stringify([]))
+   }
+
+ }, [areas])
+ useEffect(() =>{
+  if (tareasIniciales) {
+    localStorage.setItem('tareas', JSON.stringify(tareas))
+  }else{
+   localStorage.setItem('tareas', JSON.stringify([]))
+  }
+
+}, [tareas])
+
+
+ //FUNCIONES
  const handleOpenFormArea = () =>{
    console.log("open form")
  }
@@ -16,6 +46,7 @@ function App() {
     const newAreas = areas.filter(area => area.id !== id)
     setAreas(newAreas)
  }
+ 
   return (
     <div className="App">
       <h1>OrganizaToday</h1>
@@ -37,7 +68,7 @@ function App() {
       :
       <div className="row">
         {areas.map(area =>(
-          <AreaTarget key={area.id} area = {area} handleDeleteArea = {handleDeleteArea}/>
+          <AreaTarget key={area.id} area = {area} handleDeleteArea = {handleDeleteArea} tareas = {tareas} setTareas={setTareas}/>
         ))}
       </div> 
     }

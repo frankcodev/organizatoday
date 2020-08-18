@@ -9,7 +9,6 @@ body, html{
 *,*::before,*::after {box-sizing: inherit;}
 .setfocus, button, input{
     -webkit-touch-callout: none;
-   
     -webkit-tap-highlight-color: transparent;
     outline: none;
     text-decoration: none;
@@ -22,9 +21,7 @@ button{
     -ms-user-select:none;
     user-select: none;
 }
-input:focus{
-    box-shadow: 0px 2px 3px #ac71ff;
-}
+input:focus{box-shadow: 0px 2px 3px #ac71ff;}
 /*Clases flexbox */
 .f, .column, .wrap, .nowrap, .f4{display: flex;}
 .column{flex-direction: column;}
@@ -35,8 +32,8 @@ input:focus{
 .f2, .f2y, .f1x2y, .f1y2y, .f2y3x, .f2y3y{align-items: center;display: flex;}
 .f3, .f3x, .f1x3x, .f2x3x, .f1y3x, .f2y3x {justify-content: flex-end;display: flex;}
 .f3, .f3y, .f1x3y, .f2x3y, .f1y3y, .f2y3y{align-items: flex-end;display: flex;}
-
 .f4{justify-content: space-between;}
+
 .width, .full {width: 100% !important;}
 .height, .full{height: 100% !important;}
 
@@ -52,7 +49,7 @@ input:focus{
 .m2, .m2y, .m2t{margin-top: 0.8em;} .m2, .m2y, .m2b {margin-bottom: 0.8em;}
 .m2, .m2x, .m2l {margin-left: 0.8em;} .m2, .m2x, .m2r {margin-right: 0.8em;}
 
-.targetPhone{
+.target-phone{
     background-color: rgb(255, 255, 255);
     margin: 5px 10px;
     padding: 8px;
@@ -60,9 +57,8 @@ input:focus{
     width: 300px;
     border-radius: 30px;
     border: 10px solid #0b0c11;
-    position: relative;
 }
-.targetPhone::before{
+.target-phone::before{
     content: "";
     position: absolute;
     background-color: #0b0c11;
@@ -72,7 +68,7 @@ input:focus{
     left: 68px;
     border-radius: 0px 0px 30px 30px;
 }
-.targetPhone::after{
+.target-phone::after{
     content: "";
     position: absolute;
     background-color: rgb(61, 61, 61);
@@ -82,75 +78,65 @@ input:focus{
     left: 109px;
     border-radius: 20px;
 }
-.targetHeader{
+.target-header{
     box-shadow: 0px 2px #e3ebf5c7;
-    text-align: center;
     font-size: 14px;
     padding-top: 10px;
 }
-.targetContent{
-    height: 100%;
+.target-content{
     overflow-y: auto;
 }
-.rowTareas{
+.row-tareas{
   margin-top: 14px;
-   width: 100%;
-   align-self: flex-start;
+align-self: flex-start;
 }
-.tarea{
+.dtarea{
     background-color: rgb(217, 219, 255);
     color: #020025;
     margin-bottom: 5px;
     padding: 6px;
     border-radius: 14px;
-    width: 100%;
-    align-self: flex-start !important;
 }
-.addFormTarea{
+.dform-tarea{
     background-color: #cbe0f8ee;
-    position: absolute;
     padding: 8px;
     border-radius: 20px;
     box-shadow: 3px 6px 11px #323a63;
-    width: 100%;
 }
-.addFormTarea input{
-    width: 100%;
-}
-.headerOtd{
-    padding: 20px 0;
-}
-.headerArea{
+.dform-tarea input{width: 100%;}
+.organize-header{padding: 20px 0;}
+.header-Area{
     box-shadow: 0px 3px #0b0c11;
     transition: 0.3s;
     padding: 0.5em 2.5em;
+    border-bottom: 3px solid #222a55;
 }
-.relative{position: relative;}
-.addContentArea, .addFormArea{max-width: 300px;}
+.form-area{width: 210px;}
 .inputcolor{
     background-color: #ffffff;
     padding: 3px;
     border-radius: 10px;
     border: 1px solid #c9c9c9a4;
 }
-.colorPicker{
-    position: absolute;
+.color-picker{
     top: 105px;
     left: -20px;
     z-index: 1;
 }
-.colorCircle{
+.color-circle{
     padding: 7px;
     border-radius: 100%;
     margin-right: 2px;
 }
-.closePicker{
+.close-picker{
     bottom: 0;
     right: 0;
-    position: absolute;
 }
-.message{max-width: 250px; padding: 8px 16px !important;}
-.msg, .message{
+.dmessage{
+    max-width: 250px; 
+    padding: 8px 16px !important;
+}
+.imsg, .dmessage{
     padding: 2px 8px;
     border-radius: 20px;
     font-weight: bold;
@@ -159,45 +145,54 @@ input:focus{
     font-size: 12px;
     transition: 0.3s;
 }
-.msg{
-    position: absolute;
-    top: -22px;
-}
+.imsg{top: -22px;}
 .success{
     background-color: #92f7a3f6;
     color: #003a05;
 }
 /* COLORES ORGANIZATODAY*/
 .b1{background-color: #0b0c11;}
+.b3{background-color: #f8f8f8ec;}
 .c1{color: #4dd358;}
-.b2{background-color: #0b0c11;}
 .c2{color: #0b0c11;}
 .c3{color: #2c75b4;;}
-.c6{color: #fcb6c9;}
-.c4{color: #275d8b;}
-
-.tOtd{
-    font-size: 3rem;
-    color: #011a05;
+/*Background y algunos estilos de contenedor*/
+.bcover{background-size: cover;}
+.bfixed{background-attachment: fixed;}
+.fixed{position: fixed;}
+.relative{position: relative;}
+.absolute{position: absolute;}
+.presentacion, .bcool{
+    z-index: 3;
+    background-color: #383bee;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2000 1500'%3E%3Cdefs%3E%3CradialGradient id='a' gradientUnits='objectBoundingBox'%3E%3Cstop offset='0' stop-color='%23FB3'/%3E%3Cstop offset='1' stop-color='%23383bee'/%3E%3C/radialGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='0' y1='750' x2='1550' y2='750'%3E%3Cstop offset='0' stop-color='%239c7b91'/%3E%3Cstop offset='1' stop-color='%23383bee'/%3E%3C/linearGradient%3E%3Cpath id='s' fill='url(%23b)' d='M1549.2 51.6c-5.4 99.1-20.2 197.6-44.2 293.6c-24.1 96-57.4 189.4-99.3 278.6c-41.9 89.2-92.4 174.1-150.3 253.3c-58 79.2-123.4 152.6-195.1 219c-71.7 66.4-149.6 125.8-232.2 177.2c-82.7 51.4-170.1 94.7-260.7 129.1c-90.6 34.4-184.4 60-279.5 76.3C192.6 1495 96.1 1502 0 1500c96.1-2.1 191.8-13.3 285.4-33.6c93.6-20.2 185-49.5 272.5-87.2c87.6-37.7 171.3-83.8 249.6-137.3c78.4-53.5 151.5-114.5 217.9-181.7c66.5-67.2 126.4-140.7 178.6-218.9c52.3-78.3 96.9-161.4 133-247.9c36.1-86.5 63.8-176.2 82.6-267.6c18.8-91.4 28.6-184.4 29.6-277.4c0.3-27.6 23.2-48.7 50.8-48.4s49.5 21.8 49.2 49.5c0 0.7 0 1.3-0.1 2L1549.2 51.6z'/%3E%3Cg id='g'%3E%3Cuse href='%23s' transform='scale(0.12) rotate(60)'/%3E%3Cuse href='%23s' transform='scale(0.2) rotate(10)'/%3E%3Cuse href='%23s' transform='scale(0.25) rotate(40)'/%3E%3Cuse href='%23s' transform='scale(0.3) rotate(-20)'/%3E%3Cuse href='%23s' transform='scale(0.4) rotate(-30)'/%3E%3Cuse href='%23s' transform='scale(0.5) rotate(20)'/%3E%3Cuse href='%23s' transform='scale(0.6) rotate(60)'/%3E%3Cuse href='%23s' transform='scale(0.7) rotate(10)'/%3E%3Cuse href='%23s' transform='scale(0.835) rotate(-40)'/%3E%3Cuse href='%23s' transform='scale(0.9) rotate(40)'/%3E%3Cuse href='%23s' transform='scale(1.05) rotate(25)'/%3E%3Cuse href='%23s' transform='scale(1.2) rotate(8)'/%3E%3Cuse href='%23s' transform='scale(1.333) rotate(-60)'/%3E%3Cuse href='%23s' transform='scale(1.45) rotate(-30)'/%3E%3Cuse href='%23s' transform='scale(1.6) rotate(10)'/%3E%3C/g%3E%3C/defs%3E%3Cg transform='rotate(0 0 0)'%3E%3Cg transform='rotate(0 0 0)'%3E%3Ccircle fill='url(%23a)' r='3000'/%3E%3Cg opacity='0.5'%3E%3Ccircle fill='url(%23a)' r='2000'/%3E%3Ccircle fill='url(%23a)' r='1800'/%3E%3Ccircle fill='url(%23a)' r='1700'/%3E%3Ccircle fill='url(%23a)' r='1651'/%3E%3Ccircle fill='url(%23a)' r='1450'/%3E%3Ccircle fill='url(%23a)' r='1250'/%3E%3Ccircle fill='url(%23a)' r='1175'/%3E%3Ccircle fill='url(%23a)' r='900'/%3E%3Ccircle fill='url(%23a)' r='750'/%3E%3Ccircle fill='url(%23a)' r='500'/%3E%3Ccircle fill='url(%23a)' r='380'/%3E%3Ccircle fill='url(%23a)' r='250'/%3E%3C/g%3E%3Cg transform='rotate(0 0 0)'%3E%3Cuse href='%23g' transform='rotate(10)'/%3E%3Cuse href='%23g' transform='rotate(120)'/%3E%3Cuse href='%23g' transform='rotate(240)'/%3E%3C/g%3E%3Ccircle fill-opacity='0.1' fill='url(%23a)' r='3000'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
+.borganize{
+    height:600px;
+    width: 85%;
+    background-image: url("./images/organize.png");
+    border-radius: 30px;
+    padding: 20px;
+}
+.bienvenida{
+    background-color: #f5f4f4e8;
+    padding: 10px;
+    border-radius: 16px;
+}
+/*ESTILOS DE TEXTO*/
+.tOtd{font-size: 3rem;color: #011a05;}
 .bold{font-weight: bold;}
-.simpleTitle{
-    font-weight: bold;
-    font-size: 22px;
-}
-.minTitle{font-size: 11px;background-color: rgba(68, 68, 68, 0.719); padding: 2px 5px;border-radius: 20px;}
+.simple-title{font-weight: bold;font-size: 22px;}
 .t2{text-align: center;}
 span{display: inline-block;}
-.alertMensaje{
-    position: fixed;
-    z-index: 2;
-    width: 100%;
-    height: 100%;
+.alert-msg{z-index: 2;}
+.user-name{
+    color: #7c59fd;
+    bottom: 10px;
 }
-
 /* INPUTS */
 .pointer{cursor: pointer;}
-button, .button{
+button, .sbutton{
   border: none;
   padding: 8px;
   cursor: pointer;
@@ -208,7 +203,7 @@ button, .button{
   background-color: #80e289;
   color: #002700;
 }
-.input{
+.sinput{
     border: none;
     padding: 8px 10px;
     background-color: #262926;

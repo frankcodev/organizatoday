@@ -27,11 +27,11 @@ const AreaTarget = ({area, handleDeleteArea, tareas, setTareas}) => {
     }
 
     return ( 
-        <div className="targetPhone relative f4 column">
-            <div className = "targetHeader">
+        <div className="target-phone relative f4 column">
+            <div className = "target-header t2">
                  <h1 style={{color: `${area.color}`}}>{area.name}</h1>
             </div>
-            <div className="targetContent f2 wrap">
+            <div className="target-content height f2 wrap">
               {openForm?
                   <TareaForm area={area} handleCreateTarea={handleCreateTarea} handleClose={handleCloseFormTarea}/>   
                   :null 
@@ -42,7 +42,7 @@ const AreaTarget = ({area, handleDeleteArea, tareas, setTareas}) => {
                     <span>Agrega tareas</span>
                  </div>
                :
-          <div className="rowTareas column">
+          <div className="row-tareas width column">
                   {currentTareas.map(tarea =>(
                 <Tarea key={tarea.id} tarea = {tarea} handleDeleteTarea={handleDeleteTarea}/>
             ))}

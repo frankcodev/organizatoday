@@ -57,27 +57,27 @@ const Formulario = ({handleCreateArea}) => {
     }
     return (  
         <Fragment>
-             <div className="addFormArea relative column">
-         {error? <span className="msg">Escribe algo..</span> : null}
+             <div className="form-area relative column">
+         {error? <span className="imsg absolute">Escribe algo..</span> : null}
         <form onSubmit={handleSubmit}>
             <div className="column">     
             
             <div className="f2y m1b inputcolor relative">
             
                 {OpenColorPicker?
-                 <div className="colorPicker">
+                 <div className="color-picker absolute">
                   <ChromePicker 
                   color={area.color}
                   onChange={onChangeColor}
                  />
-                <span className="closePicker">
+                <span className="close-picker absolute">
                 <CloseButton size={1.5} handleClose={handleOpenColorPicker}/>
                 </span>
                   </div>
                  :null    
             }
                 <div onClick={handleOpenColorPicker}  className="bold pointer" style={{color: `${area.color}`, padding: "2px"}}>
-                    <span style={{backgroundColor: `${area.color}`}} className="colorCircle"></span>
+                    <span style={{backgroundColor: `${area.color}`}} className="color-circle"></span>
                     {area.name? area.name : 'Ponle color - Click aquí'}
             </div>  
             </div>
@@ -86,7 +86,7 @@ const Formulario = ({handleCreateArea}) => {
             type="text" 
             name="name"
             placeholder="Nombre del área"
-            className="input"
+            className="sinput"
             value={area.name}
             onChange={handleUpdateState}
             />

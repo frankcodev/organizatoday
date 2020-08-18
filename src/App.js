@@ -1,23 +1,45 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState, useEffect, Fragment, useRef } from 'react';
 import AreaForm from './components/AreaForm';
 import AreaTarget from './components/AreaTarget';
 import AddButton from './components/AddButtonArea';
 import CloseButton from './components/CloseButton';
+import Welcome from './components/Welcome';
+import AlertMessgae from './components/AlertMessage';
 
 function App() {
 
+  const contentArea = useRef()
+  const windowClick = e =>{
+    if (contentArea.current) {
+      if (e.target === document.body || e.target === contentArea.current) {
+        handleCloseFormArea();
+      }
+    }
+    
+  }
+  useEffect(()=>{
+    window.addEventListener('click', windowClick);
+  }, [])
+
   //ALMACENAR AREAS Y TAREAS
+  
   let areasIniciales = JSON.parse(localStorage.getItem('areas'));
   let tareasIniciales = JSON.parse(localStorage.getItem('tareas'));
+  let userName = localStorage.getItem('username');
  if (!areasIniciales) {
    areasIniciales = []
  }
  if (!tareasIniciales) {
   tareasIniciales = []
 }
- const [openForm, setOpenForm] = useState(false)
+if (!userName) {
+  userName = false;
+}
  const [areas, setAreas] = useState(areasIniciales)
  const [tareas, setTareas] = useState(tareasIniciales)
+ const [session, setSession] = useState(userName)
+ const [AlertMensaje, setAlertMensaje] = useState('')
+ const [openForm, setOpenForm] = useState(false)
 
  useEffect(() =>{
    if (areasIniciales) {
@@ -47,47 +69,43 @@ function App() {
 }
  const handleCreateArea = area =>{
    setAreas([ area,...areas])
-   console.log(areas)
  }
-
- const [AlertMensaje, setAlertMensaje] = useState('')
  const handleDeleteArea = id =>{
   let areatareas = tareas.filter(tarea=> tarea.area_id === id);
-  console.log(areatareas)
   if (areatareas.length > 0) {
     setAlertMensaje('Esta área tiene tareas registrtadas, asegurate qué harás con ellas;)')
     return;
   }
     const newAreas = areas.filter(area => area.id !== id)
     setAreas(newAreas)
- }
- 
+  }
   return (
     <div className="App full">
+      {!session? 
+        <Welcome setSession={setSession}/>
+          :
+   <Fragment>
      {AlertMensaje ? 
-        <div className="alertMensaje f2">
-        <div className="message column">
-        {AlertMensaje}
-        <button onClick={() => setAlertMensaje('')}>OK</button>
-        </div>
-      </div> 
+        <AlertMessgae AlertMensaje={AlertMensaje} setAlertMensaje={setAlertMensaje} />
        :null
     }
-      <div className="headerOtd width f2 column">
+      <div className="organize-header width f2 column b3 relative">
         <h1 className="tOtd"><span className="c1">Organiza</span>Today</h1>
-        {/* <p className="bold c6 minTitle">tu día, semana, o mes organizado;)</p> */}
+        <span className="user-name absolute bold">{localStorage.getItem('username')}</span>
       </div>
 
-     <div className="headerArea f4 f2y">
-     {areas.length > 0 ? 
-      <div className="areasDisponibles m2r">
-        <span className="simpleTitle c3">Áreas de tu vida</span>
-      </div>
+     <div className="header-Area b3 f4 f2y">
+     <div className="areasDisponibles m2r"> 
+      {areas.length > 0 ? 
+        <span className="simple-title c3">Áreas de tu vida</span>
       :
-      <span className="bold c3">Agrega áreas de tu vida, ejemplo: personal, casa, trabajo..</span>
-      }
-      <div className="addContentArea f">
-        {openForm?<AreaForm handleCreateArea = {handleCreateArea}/>:null}
+      <span className="c3">Agrega áreas de tu vida, ejemplo: personal, casa, trabajo..</span>
+      }</div>
+      <div className="addContentArea f ">
+        {openForm?<AreaForm handleCreateArea = {handleCreateArea}/>
+        :
+        null
+        }
         <div className="f2">
           {openForm? 
             <CloseButton handleClose={handleCloseFormArea} />
@@ -98,9 +116,9 @@ function App() {
       </div>
      </div>
       {/* <p>Para inciar te sugerimos algunas areas, puedes eliminarlas o crear nuevas.</p> */}
-      <div className="contentAreas wrap full f2 p2x p2b p1t">
+      <div className="contentAreas wrap full f2 p2x p2b p1t" ref={contentArea}>
       {areas.length === 0 ?
-      <span className="simpleTitle">No hay áreas disponibles</span> 
+      <span className="simple-title">No hay áreas disponibles</span> 
       :
         <Fragment>
           {areas.map(area =>(
@@ -109,6 +127,7 @@ function App() {
         </Fragment>
     }
       </div>
+      </Fragment> }
     </div>
   );
 }

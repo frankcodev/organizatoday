@@ -33,15 +33,15 @@ const TareaForm = ({handleCreateTarea, handleClose}) => {
     }, [])
     return (  
       <Fragment>
-        <div className="addFormTarea column">
-        {error? <span className="msg">Escribe algo..</span> : null}
+        <div className="dform-tarea width absolute column">
+        {error? <span className="imsg absolute">Escribe algo..</span> : null}
        
        <form onSubmit={handleSubmit}>
        <input 
        ref = {myInput}
        type="text" 
        placeholder="Describe tu tarea.."
-       className="input"
+       className="sinput"
        value={tarea.description}
        onChange={handleUpdateState}
        />

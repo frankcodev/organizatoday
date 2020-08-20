@@ -89,6 +89,7 @@ const Formulario = ({handleCreateArea}) => {
             className="sinput"
             value={area.name}
             onChange={handleUpdateState}
+            maxLength="30"
             />
           <button>Agregar</button>
          

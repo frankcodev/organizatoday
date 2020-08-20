@@ -44,6 +44,7 @@ const TareaForm = ({handleCreateTarea, handleClose}) => {
        className="sinput"
        value={tarea.description}
        onChange={handleUpdateState}
+       maxLength="70"
        />
        <div className="f2y">
            <button>Agregar</button>

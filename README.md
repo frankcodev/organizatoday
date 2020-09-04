@@ -1,3 +1,19 @@
+Aplicación de prueba OrganizaToday 
+
+La app idónea para organizar tu día, semana o mes, mira por qué:
+
+Oganízate por áreas de tu vida: casa, trabajo, estudio, personal, etc, y asígnale a cada una sus tareas. 
+
+Utiliza el buscador para  localizar tus áreas más rápido.
+
+Cuando te sientas aburrido o no sepas que hacer, OrganizaToday. Busca entre tus tareas y haz una de ellas. 
+
+¡Organízate hoy y mantente enfocado!
+
+Prueba la app en netlify -> https://amazing-cray-3bcd5c.netlify.app/
+
+----------------------------------------------------------------------------
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

@@ -25,7 +25,7 @@ const Welcome = ({setSession}) => {
           <form onSubmit={handleSubmitName} className="column">
             <input
               type="text"
-              className="input"
+              className="sinput"
               placeholder="Escribe tu nombre"
               onChange={handleChangeName}
             />

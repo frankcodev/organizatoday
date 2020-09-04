@@ -122,8 +122,9 @@ if (!userName) {
           </div>
         </div>
      </div>
+     {areas.length !== 0 ?
     <div className="f2 column width p1">
-      <span className="f m1b">Página <Pagination /></span>
+    <span className="f m1b">Página <Pagination /></span>
       <input 
       type="search"
       value = {keyword}
@@ -133,6 +134,7 @@ if (!userName) {
       maxLength="30"
       />
     </div>
+    :null}
       <div className="contentAreas wrap full f2 p2x p2b p1t" ref={contentArea}>
       {areas.length === 0 ?
         <span className="simple-title">No hay áreas disponibles</span> 
